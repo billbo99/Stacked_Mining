@@ -1,0 +1,232 @@
+---------------------------------------------------------------------------------------------------
+Version: 1.2.0
+Date: 2023.03.27
+  Changes:
+    - Support for Exotic industries
+---------------------------------------------------------------------------------------------------
+Version: 1.1.9
+Date: 2023.03.14
+  Bugfixes:
+    - Exclude ores created by creative-mod
+---------------------------------------------------------------------------------------------------
+Version: 1.1.8
+Date: 2023.03.14
+  Bugfixes:
+    - Fixed crash at line 91 in ores.lua
+---------------------------------------------------------------------------------------------------
+Version: 1.1.6
+Date: 2022.07.21
+  Changes:
+    - Added support for SE hard-resource type
+---------------------------------------------------------------------------------------------------
+Version: 1.1.5
+Date: 2022.07.15
+  Changes:
+    - fixed ore icon on resource so looks better with Mining Drones
+---------------------------------------------------------------------------------------------------
+Version: 1.1.4
+Date: 2021.01.12
+  Changes:
+    - dependency checks for py added
+---------------------------------------------------------------------------------------------------
+Version: 1.1.3
+Date: 2020.12.26
+  Changes:
+    - protect against duplicate stacked resources
+---------------------------------------------------------------------------------------------------
+Version: 1.1.2
+Date: 2020.12.26
+  Changes:
+    - Adds back stacked resources if removed
+---------------------------------------------------------------------------------------------------
+Version: 1.1.1
+Date: 2020.12.06
+  Changes:
+    - Added dependency on some mods that could change fluids to non-infinite versions
+---------------------------------------------------------------------------------------------------
+Version: 1.1.0
+Date: 2020.12.02
+  Changes:
+    - Updated to work on 1.1 .. while waiting on Author to return.
+    - Changed it so that the planner only works if the Technology has been unlocked.
+---------------------------------------------------------------------------------------------------
+Version: 0.1.17
+Date: 30.09.2020
+  Bugfixes:
+    - Fixed an issue when used together with AAI Industry and Pressurized Barrels
+---------------------------------------------------------------------------------------------------
+Version: 0.1.16
+Date: 25.09.2020
+  Changes:
+    - Cursed Filter Mining Drill is now compatible
+        - Fixed from the mod author from his end
+    - Some minor non game-changing changes of the code
+---------------------------------------------------------------------------------------------------
+Version: 0.1.15
+Date: 24.09.2020
+  Changes:
+    - Added a entity and item description for the High pressure offshore pump in the locale
+  Bugfixes:
+    - Fixed a bug with the High pressure offshore pump (pointed out by Larandar)
+        - The fluid of the offshore pump was hardcoded but some mods change it to something else other than water
+    - The order of the High pressure offshore pump is now also softcoded
+    - Fixed that with AAI Industry the pipe connection of the High pressure offshore pump were displayed incorrectly
+    - Fixed a bug that the icon_size of the High pressure offshore pump was not set correctly when some other mod adjust
+      that value
+    - Fixed the issue that in some cases when a mod was changing the recipe of the offshore pump the recipe of the High
+      pressure offshore pump messed up
+---------------------------------------------------------------------------------------------------
+Version: 0.1.14
+Date: 23.09.2020
+  Features:
+    - Added an option to adjust the graphics of ores:
+        - If enabled, the "stage_counts" of ores that are marked for stacked mining are changed in such a way that the same
+          graphics are used as before they were marked
+        - "stage_counts" is a list of values that define which stage of the animation is used depending on the amount of an
+          ore patch
+        - Leaving this setting disabled makes it easier to distinguish between normal ore and ore marked for stacked mining,
+          because of the change of the graphics. However, ore patches with a low amount of ore can look quite barren
+        - default: disabled
+  Changes:
+    - Added GENERAL-LICENSE.txt and CREDITS.txt
+    - Renamed "Stacked mining planner" to "Resource compression planner"
+    - With Mining Drones enabled, the recipes for mining stacked ores in Mining Depots are now sorted into their own subgroup
+    - Temporary marked the mod Cursed Filter Mining Drill again as incompatible
+---------------------------------------------------------------------------------------------------
+Version: 0.1.13
+Date: 22.09.2020
+  Features:
+    - Changes with Mining Drones:
+        - Fixed that outdated ore icons are used for the mining recipes of stacked ores in Mining Depots, even if a mod like
+          Deadlock Stacking for Vanilla is installed (highly recommended)
+        - Change to the order of the recipes in Mining Depots, normal ores and their stacked version are now next to each other
+    - Added support for Angel's Fissures
+  Bugfixes:
+    - Fixed incompatibility with Cursed Filter Mining Drill
+    - Fixed issues with Crude Oil when the option to make it finite was enabled in Krastorio 2
+    - Fixed a crash that occured when selecting an Angel's Fissure with the mod Cursed Filter Mining Drill enabled
+---------------------------------------------------------------------------------------------------
+Version: 0.1.12
+Date: 21.09.2020
+  Bugfixes:
+    - Fixed a crash
+---------------------------------------------------------------------------------------------------
+Version: 0.1.12
+Date: 21.09.2020
+  Features:
+    - Added an option to add a High pressure offshore pump:
+        - Outputs High-pressurized water directly, but at a lower rate than a normal offshore pump
+        - The pressurized output/second is adjusted automatically depending on the fluid compression rate selected in the
+          settings of Pressurized fluids, meaning the (uncompressed) output/second stays the same overall
+    - If FactorioExtended-Plus Transport is enabled a High pressure offshore pump Mk2 is added
+---------------------------------------------------------------------------------------------------
+Version: 0.1.10
+Date: 21.09.2020
+  Changes:
+    - Added compatibility for Pressurized fluids
+    - Resources of the category "basic-fluid" (like crude oil) can be marked to be extracted as their high-pressure version:
+        - Similar to ores, the mining time and the depletion amount (how much the field's yield is decreased each cycle)
+          for those marked resources are adjusted depending on the fluid compression rate selected in the settings of
+          Pressurized fluids
+    - Temporary marked the mod Cursed Filter Mining Drill as incompatible
+---------------------------------------------------------------------------------------------------
+Version: 0.1.9
+Date: 19.09.2020
+  Changes:
+    - Some changes so that infinite resources are handled correctly
+        - for infinite resources the amount is no longer changed when converting it to its stacked version and vise versa
+        - the infinite_depletion_amount is now correctly adjusted depending on the stackSize for infinite resources
+    - Merged the settings for "Allow overwrite of Stack size" and "Compression factor (Stack size)" into a single setting,
+      with default set to disabled and allowed values the same as in Deadlock's Stacking
+    - Added some safety checks to prevent edge cases from causing issues
+    - The selection tool now only selects entities of the type resource
+        - before it was selecting all entities and only checking inside the control function what type they are
+  Bugfixes:
+    - Fixed an incompatibility with Angel's Infinite Ores that caused a crash
+---------------------------------------------------------------------------------------------------
+Version: 0.1.8
+Date: 09.09.2020
+  Changes:
+    - New icon for the Stacked mining planner
+    - Minor changes to the locale
+    - Minor changes to the code to make it cleaner
+    - Removed any remaining debug code
+  Bugfixes:
+    - Fixed the dates in the changelog
+---------------------------------------------------------------------------------------------------
+Version: 0.1.7
+Date: 18.08.2020
+  Changes:
+    - Changed the graphic for the Stacked Ore Mining Technology
+        - the new icon is based on the newest graphic from the base game that were changed in version 0.18.43
+    - Added support for Imersite for Krastorio2 (resource category "kr-quarry")
+    - Changed version to 1.0.0 (still works perfectly fine with 0.18)
+  Bugfixes:
+    - Fixed some errors in the changelog
+---------------------------------------------------------------------------------------------------
+Version: 0.1.6
+Date: 03.08.2020
+  Changes:
+    - Fixed the combatibility issue with VortiK's Deep core mining
+    - Removed some debug code
+  Bugfixes:
+    - Fixed the bug that caused calculation of the fluid capacity of a miner to fail in case of the miner having a
+      input_fluid_box but no height value specified, because 1 isn't applied as the default until the end of data stage
+---------------------------------------------------------------------------------------------------
+Version: 0.1.5
+Date: 03.08.2020
+  Changes:
+    - Made changes to thechangelog.txt to make long lines more readable
+---------------------------------------------------------------------------------------------------
+Version: 0.1.4
+Date: 03.08.2020
+  Features:
+    - A stacked version of ores from mods is created even if no add-on is installed that adds support for these ores
+  Changes:
+    - Revised major portions of the code responsible for creating the stacked version of ores
+    - Moved the stacked ore generation to "data-updates.lua" to make sure that it runs after other mods have declared
+      new resources
+    - Now a stacked version for EVERY ores is created, not just those on a whitelist
+    - Replaced entity.minable.result with entity.minable.results instead, to account for some modded ores that might
+      have more than 1 mining result
+    - Added localised strings with parameters to use for the names of the stacked ores, instead of a list of all ores
+      that has to be extended for each mod
+    - Replaced the function that checks if an entity is a valid stacked-ore / ore in control.lua with a new function
+      that don't rely on a list
+    - Removed the whitelist of valid ores in control.lua, because if it no longer needed
+    - Increased the amount of fluid an electric miner can hold, because to start a mining operation the fluid capacity
+      of a miner has to be the same/bigger than the amount of fluid required to complete 10 mining operations
+        - The fluid capacity of a vanilla miner was only 200, making mining impossible with a stack size setting
+          higher than 20 for uranium ore
+        - Added a function that checks if miners added by mods have a high enough fluid capacity for the selected stack
+          size settings
+        - If not, then their fluid capacity is overwritten and set to a high enough value (capacity >= amount of fluid
+          needed for 2 mining operations
+    - Moved code that checks if a stacked version of the ore item exists and that in case it does not, create it, into
+      a separate function
+        - Now uses the names of the mining results as an argument and not the name of the ore, in case the mining result
+          is something completly different from the ore (eg. Gemstones from Bobs)
+  Bugfixes:
+    - Fixed the bug that in case of high stack size settings the fluid capacity of a miner was not high enough to start
+      a mining operation as mentioned above
+    - Fixed that fluid_amount was not adjusted correctly for ores that require fluids to mine, like "uranium ore
+      (marked for stacked mining)"
+       - Now the correct amount of fluid is used up when an ore is mined, taking into acount the increased stack size
+         of the ore that are marked for stacked mining
+    - Fixed the bug that in case of the gemstones resource from Bobs a stacked version of the item named gem-ore was
+      created, instead of the mining results of the gemstones resource
+  To-do:
+    - Support for the mod Pressurized fluids (High-pressurized oil etc.)
+    - Support for new modded resource categories, e.g. Imersite from Krastorio 2 (this mod currently only supports
+      resources of the category "basic-solid")
+    - Support for Deadlock's Crating Machine as an alternative to Deadlock's Stacking Beltboxes & Compact Loaders
+---------------------------------------------------------------------------------------------------
+Version: 0.1.3 (not public)
+Date: 01.08.2020
+  Changes:
+    - Added support for ores from angels/bobs
+---------------------------------------------------------------------------------------------------
+Version: 0.1.2
+Date: 31.07.2020
+  Features:
+    - Public release

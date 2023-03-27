@@ -1,0 +1,35 @@
+Special thanks to Deadlock for creating Deadlock's Stacking Beltboxes & Compact Loaders and to 
+shanemadden for maintaining it.
+
+Also thanks billbo99 for some modding advice and for the idea for the High pressure offshore pump.
+He also made some other nice mods related to Deadlock's Stacking. Check them out.
+
+
+This mod is an add-on for Deadlock's Stacking Beltboxes & Compact Loaders by shanemadden and 
+Deadlock. It is not an official expansion. 
+It requires Deadlock's Stacking Beltboxes & Compact Loaders to be installed, but it is not related 
+to Deadlock in any other way.
+
+
+The code was created by me and the graphics, other than the ones stated below, are edited (by me) 
+versions of graphics from the factorio base game.
+
+
+The thumbnail contains a beltbox icon by Deadlock and stacked ore icons from Deadlock Stacking for
+Vanilla by billbo99.
+
+The 3 stacked layers on the foreground of the icon for the Resource compression planner are an 
+edited and downscaled version of an icon named stacked by Kuber from the Noun Project.
+
+
+
+Links:
+
+Deadlock's Stacking Beltboxes & Compact Loaders:
+https://mods.factorio.com/mod/deadlock-beltboxes-loaders
+
+Deadlock Stacking for Vanilla
+https://mods.factorio.com/mod/DeadlockStackingForVanilla
+
+Icon "stacked" by Kuber from the Noun Project
+https://thenounproject.com/term/stacked/1450204/
