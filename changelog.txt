@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.1
+Date: 2023.04.25
+  Changes:
+    - Added startup setting (disabled by default) to unlock stacking/unstacking recipes of resources when stacked mining is researched.
+---------------------------------------------------------------------------------------------------
 Version: 1.2.0
 Date: 2023.03.27
   Changes:

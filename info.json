@@ -1,6 +1,6 @@
 {
     "name": "Stacked_Mining",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "factorio_version": "1.1",
     "title": "Deadlock's Stacked Mining (fixed for 1.1)",
     "author": "Kythblood (updated by billbo99)",
@@ -20,6 +20,7 @@
         "? pyrawores",
         "? IndustrialRevolutionStacking",
         "? DeadlockStackingForExoticIndustries",
+        "? Deadlock-SE-bridge",
         "? FactorioExtended-Plus-Transport"
     ],
     "description": "Adds a mining planner that allows you to mark ores to be mined directly as their stacked version.\nWith Compressed Fluids installed, resources can also be marked to be extracted as their high-pressure version."

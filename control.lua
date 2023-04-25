@@ -176,14 +176,31 @@ script.on_event(
 
 --[[
 script.on_init(function(event)
-	local player = game.players[event.player_index]
-	player.set_shortcut_available("give-stacked-mining-planner", false)
+    local player = game.players[event.player_index]
+    player.set_shortcut_available("give-stacked-mining-planner", false)
 end)
 
 
 script.on_init(function()
-	local player = game.players[1]
-	player.set_shortcut_available("give-stacked-mining-planner", false)
+    local player = game.players[1]
+    player.set_shortcut_available("give-stacked-mining-planner", false)
 end)
 
 --]]
+local function starts_with(str, start)
+    return str:sub(1, #start) == start
+end
+
+local function OnConfigurationChanged(e)
+    for _, force in pairs(game.forces) do
+        local recipes = force.recipes
+        local tech = force.technologies["stacked-mining-tech"]
+        for _, effect in pairs(tech.effects) do
+            if tech.researched and effect.type == "unlock-recipe" and (starts_with(effect.recipe, "deadlock") or starts_with(effect.recipe, "StackedRecipe")) then
+                recipes[effect.recipe].enabled = true
+                recipes[effect.recipe].reload()
+            end
+        end
+    end
+end
+script.on_configuration_changed(OnConfigurationChanged)

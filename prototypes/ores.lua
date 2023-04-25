@@ -197,6 +197,20 @@ for _, resource in pairs(data.raw["resource"]) do
     end
 end
 
+if getSettingValue("kyth-unlock-resource-stacking-recipes") then
+    local tech = data.raw.technology['stacked-mining-tech']
+    for _, resource in pairs(data.raw["resource"]) do
+        if starts_with(resource.name, "stacked") and not starts_with(resource.name, "creative-mod_infinite") and #resource.minable.results > 0 then
+            local mined_resource = resource.minable.results[1].name
+            local baseore = mined_resource:gsub("deadlock%-stack%-", "")
+            local stack_recipe = data.raw.recipe["deadlock-stacks-stack-" .. baseore]
+            local unstack_recipe = data.raw.recipe["deadlock-stacks-unstack-" .. baseore]
+            if stack_recipe then table.insert(tech.effects, { type = "unlock-recipe", recipe = stack_recipe.name }) end
+            if unstack_recipe then table.insert(tech.effects, { type = "unlock-recipe", recipe = unstack_recipe.name }) end
+        end
+    end
+end
+
 for _, resource in pairs(resourceTable) do
     data:extend({ resource })
 end
