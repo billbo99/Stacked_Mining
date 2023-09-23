@@ -16,6 +16,7 @@ if mods["CompressedFluids"] and mods["angelsrefining"] and getSettingValue("kyth
     hp_seafloor_pump_entity.picture['west'].filename = "__Stacked_Mining__/graphics/entity/seafloor-pump.png"
     hp_seafloor_pump_entity.fluid = "high-pressure-water-viscous-mud"
     hp_seafloor_pump_entity.fluid_box.filter = "high-pressure-water-viscous-mud"
+    hp_seafloor_pump_entity.minable.result = hp_seafloor_pump_entity.name
 
     local hp_seafloor_pump_item = table.deepcopy(data.raw.item["seafloor-pump"])
     hp_seafloor_pump_item.name = "high-pressure-seafloor-pump"
