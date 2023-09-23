@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.2
+Date: 2023.09.23
+  Changes:
+    - Added high-pressure seafloor pump if Angles and Pressurized fluids installed
+---------------------------------------------------------------------------------------------------
 Version: 1.2.1
 Date: 2023.04.25
   Changes:
@@ -110,11 +115,6 @@ Date: 22.09.2020
     - Fixed incompatibility with Cursed Filter Mining Drill
     - Fixed issues with Crude Oil when the option to make it finite was enabled in Krastorio 2
     - Fixed a crash that occured when selecting an Angel's Fissure with the mod Cursed Filter Mining Drill enabled
----------------------------------------------------------------------------------------------------
-Version: 0.1.12
-Date: 21.09.2020
-  Bugfixes:
-    - Fixed a crash
 ---------------------------------------------------------------------------------------------------
 Version: 0.1.12
 Date: 21.09.2020

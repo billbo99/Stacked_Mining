@@ -43,3 +43,15 @@ data:extend(
             order = "d"
         },
     })
+
+if mods["angelsrefining"] then
+    data:extend({
+        {
+            type = "bool-setting",
+            name = "kyth-high-pressure-seafloor-pump",
+            setting_type = "startup",
+            default_value = true,
+            order = "ba"
+        },
+    })
+end

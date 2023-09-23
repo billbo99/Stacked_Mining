@@ -1,6 +1,6 @@
 {
     "name": "Stacked_Mining",
-    "version": "1.2.1",
+    "version": "1.2.2",
     "factorio_version": "1.1",
     "title": "Deadlock's Stacked Mining (fixed for 1.1)",
     "author": "Kythblood (updated by billbo99)",
@@ -12,6 +12,7 @@
         "? Krastorio2",
         "? steinios_unlasting_oil",
         "? angelsinfiniteores",
+        "? angelsrefining",
         "? pycoalprocessing",
         "? pyfusionenergy",
         "? pyhightech",
