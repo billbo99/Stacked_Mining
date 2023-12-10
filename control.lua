@@ -58,10 +58,6 @@ local function markOres(player, entities)
         if entity.valid then
             if entity.type == "resource" then
                 local stacked_resource = "stacked-" .. entity.name
-                if not game.entity_prototypes[stacked_resource] then
-                    player.print("This resource has no stacked prototype")
-                    return
-                end
                 if game.entity_prototypes[entity.name].resource_category == "basic-solid" or game.entity_prototypes[entity.name].resource_category == "kr-quarry" or game.entity_prototypes[entity.name].resource_category == "hard-resource" then
                     -- Support for Pressurized fluids
                     if not isOreStacked(entity) then
@@ -74,6 +70,10 @@ local function markOres(player, entities)
                     end
                 elseif game.active_mods["Cursed-FMD"] and game.entity_prototypes[entity.name] and game.entity_prototypes[entity.name].mineable_properties.products[1].type == "item" and game.entity_prototypes[entity.name].resource_category == entity.name then
                     -- Support for Cursed Filter Mining Drill
+                    if not game.entity_prototypes[stacked_resource] then
+                        player.print("This resource has no stacked prototype")
+                        return
+                    end
                     if not isOreStacked(entity) then
                         convertEntity(entity, "stacked-" .. entity.name, true)
                     end

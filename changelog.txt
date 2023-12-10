@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.5
+Date: 2023.12.10
+  Bugfixes:
+    - Moved location of check -- Added a check to only try to stack resources if there is a valid prototype
+---------------------------------------------------------------------------------------------------
 Version: 1.2.4
 Date: 2023.12.05
   Bugfixes:
