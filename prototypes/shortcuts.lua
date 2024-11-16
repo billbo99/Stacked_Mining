@@ -9,30 +9,10 @@ data:extend(
             associated_control_input = "give-stacked-mining-planner",
             style = "green",
             technology_to_unlock = "stacked-mining-tech",
-            icon = {
-                filename = "__Stacked_Mining__/graphics/icons/stacked-mining-planner-x32-white.png",
-                priority = "extra-high-no-scale",
-                size = 32,
-                scale = 0.5,
-                mipmap_count = 2,
-                flags = {"gui-icon"}
-            },
-            small_icon = {
-                filename = "__Stacked_Mining__/graphics/icons/stacked-mining-planner-x24.png",
-                priority = "extra-high-no-scale",
-                size = 24,
-                scale = 0.5,
-                mipmap_count = 2,
-                flags = {"gui-icon"}
-            },
-            disabled_small_icon = {
-                filename = "__Stacked_Mining__/graphics/icons/stacked-mining-planner-x24-white.png",
-                priority = "extra-high-no-scale",
-                size = 24,
-                scale = 0.5,
-                mipmap_count = 2,
-                flags = {"gui-icon"}
-            }
+            icon = "__Stacked_Mining__/graphics/icons/stacked-mining-planner-x32-white.png",
+            icon_size = 32,
+            small_icon = "__Stacked_Mining__/graphics/icons/stacked-mining-planner-x24.png",
+            small_icon_size = 24,
         }
     }
 )

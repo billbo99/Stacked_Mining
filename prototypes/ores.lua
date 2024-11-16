@@ -1,3 +1,13 @@
+local function has_value(tab, val)
+    for index, value in ipairs(tab) do
+        if value == val then
+            return true
+        end
+    end
+
+    return false
+end
+
 local function starts_with(str, start)
     return str:sub(1, #start) == start
 end
@@ -27,6 +37,9 @@ local function createStackedVersion(name)
         if data.raw["item"]["deadlock-stack-" .. name] then
             return true
         else
+            if data.raw["item"][name].icon_size == nil then
+                data.raw["item"][name].icon_size = 64
+            end
             deadlock.add_stack(name, nil, "deadlock-stacking-1")
             log("Created stacked version of the item " ..
                 name ..
@@ -165,34 +178,25 @@ end
 
 -- try to create stacked versions for all resources in the resource table
 local resourceTable = {}
+local resource_category_whitelist = { "basic-solid", "kr-quarry", "hard-resource", "ei_drilling", "hard-solid" }
+local fluid_resource_category_whitelist = { "basic-fluid", "oil", "angels-fissure" }
+
 for _, resource in pairs(data.raw["resource"]) do
     if not starts_with(resource.name, "stacked") and not starts_with(resource.name, "creative-mod_infinite") then
-        if resource.category == nil or resource.category == "basic-solid" or resource.category == "kr-quarry" or
-            resource.category == "hard-resource" or resource.category == "ei_drilling" then
+        if has_value(resource_category_whitelist, resource.category) or resource.category == nil then
             -- Support for Pressurized fluids
             -- check if nil because in that case at the end of the data stage the value would be set to the default, which is "basic-solid"
             table.insert(resourceTable, createStackedOre(resource.name))
             log("Sucessfully created the ResourceEntity for the stacked ore version of " .. resource.name)
-        elseif mods["CompressedFluids"] and
-            (resource.category == "basic-fluid" or resource.category == "oil" or resource.category == "angels-fissure") then
+        elseif mods["CompressedFluids"] and has_value(fluid_resource_category_whitelist, resource.category) then
             -- check if a high pressure version fluid exists that corresponds to the mining result of a resource
-            if (
-                resource.minable.result and
-                (data.raw.fluid["high-pressure-" .. (resource.minable.result.name or resource.minable.result[1])]))
-                or
-                (
-                resource.minable.results and
-                (
-                data.raw.fluid[
-                "high-pressure-" .. (resource.minable.results[1].name or resource.minable.results[1][1])])) then
+            if (resource.minable.result and (data.raw.fluid["high-pressure-" .. (resource.minable.result.name or resource.minable.result[1])]))
+                or (resource.minable.results and (data.raw.fluid["high-pressure-" .. (resource.minable.results[1].name or resource.minable.results[1][1])])) then
                 table.insert(resourceTable, createCompressedFluidResource(resource.name))
                 log("Sucessfully created the ResourceEntity for the high pressure version of " .. resource.name)
             end
         else
-            log("Skipping the resource " ..
-                resource.name ..
-                " because it is neither basic-solid, kr-quarry, hard-resource nor basic-fluid. Feel free to contact the mod author if you feel like the resource "
-                .. resource.name .. " should be supported")
+            log("Skipping the resource " .. resource.name .. " as not yet supported")
         end
     end
 end
