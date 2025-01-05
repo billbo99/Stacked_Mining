@@ -33,6 +33,10 @@ end
 -- check if the stacked version of the item with the given name exists and in case it does not, create it
 -- returns true when an item was created or if it already exists, otherwise false
 local function createStackedVersion(name)
+    if not data.raw["item"][name].subgroup then
+        data.raw["item"][name].subgroup = "raw-resource"
+    end
+
     if data.raw["item"][name] then
         if data.raw["item"]["deadlock-stack-" .. name] then
             return true

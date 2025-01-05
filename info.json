@@ -7,6 +7,9 @@
     "dependencies": [
         "base",
         "deadlock-beltboxes-loaders",
+        "? maraxsis",
+        "? planet-arrakis",
+        "? planet-muluna",
         "? IndustrialRevolutionStacking",
         "? CompressedFluids",
         "? Krastorio2",

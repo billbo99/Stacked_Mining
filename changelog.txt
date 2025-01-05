@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.0.1
+Date: 2025.01.05
+  Bugfixes:
+    - deadlock-beltboxes-loaders/prototypes/create_stack.lua:19: attempt to index field '?' (a nil value)
+      - Had to hack around "deadlock-beltboxes-loaders" requirement that all items have a subgroup.
+      - Any that dont now get set to "raw-resource"
+---------------------------------------------------------------------------------------------------
 Version: 2.0.0
 Date: 2024.11.16
   Changes:
