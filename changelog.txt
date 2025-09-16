@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.0.2
+Date: 2025.09.16
+  Bugfixes:
+    - Excludie creating stacked ores where mining results have products which can not be stacked.
+---------------------------------------------------------------------------------------------------
 Version: 2.0.1
 Date: 2025.01.05
   Bugfixes:
@@ -248,18 +253,3 @@ Date: 03.08.2020
          of the ore that are marked for stacked mining
     - Fixed the bug that in case of the gemstones resource from Bobs a stacked version of the item named gem-ore was
       created, instead of the mining results of the gemstones resource
-  To-do:
-    - Support for the mod Pressurized fluids (High-pressurized oil etc.)
-    - Support for new modded resource categories, e.g. Imersite from Krastorio 2 (this mod currently only supports
-      resources of the category "basic-solid")
-    - Support for Deadlock's Crating Machine as an alternative to Deadlock's Stacking Beltboxes & Compact Loaders
----------------------------------------------------------------------------------------------------
-Version: 0.1.3 (not public)
-Date: 01.08.2020
-  Changes:
-    - Added support for ores from angels/bobs
----------------------------------------------------------------------------------------------------
-Version: 0.1.2
-Date: 31.07.2020
-  Features:
-    - Public release

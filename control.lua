@@ -76,6 +76,10 @@ local function markOres(player, entities)
                     or prototypes.entity[entity.name].resource_category == "hard-resource"
                     or prototypes.entity[entity.name].resource_category == "hard-solid"
                 then
+                    if not prototypes.entity[stacked_resource] then
+                        player.print("This resource has no stacked prototype")
+                        return
+                    end
                     -- Support for Pressurized fluids
                     if not isOreStacked(entity) then
                         convertEntity(entity, "stacked-" .. entity.name, true)

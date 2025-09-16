@@ -67,27 +67,36 @@ local function createStackedOre(oreName)
     -- replace every result of minable with their stacked version
     if ore.minable.results then
         local tempResults = {}
+        flag = true
         for _, result in pairs(ore.minable.results) do
-            if result.name then
-                if createStackedVersion(result.name) then
-                    result.name = "deadlock-stack-" .. result.name
-                    table.insert(tempResults, result)
-                else
-                    log("Error in createStackedOre() for " .. result.name)
-                end
-            elseif result[1] then
-                if createStackedVersion(result[1]) then
-                    result[1] = "deadlock-stack-" .. result[1]
-                    table.insert(tempResults, result)
-                else
-                    log("Error in createStackedOre() for " .. result[1] .. " with [1]")
-                end
-            else
-                log("Something went wrong during the replacing of minable.results")
-                break -- probably not necessary?
-            end
+            if not data.raw.item[result.name] then flag = false end
         end
-        ore.minable.results = tempResults
+        if flag then
+            for _, result in pairs(ore.minable.results) do
+                if result.name then
+                    if createStackedVersion(result.name) then
+                        result.name = "deadlock-stack-" .. result.name
+                        table.insert(tempResults, result)
+                    else
+                        log("Error in createStackedOre() for " .. result.name)
+                    end
+                elseif result[1] then
+                    if createStackedVersion(result[1]) then
+                        result[1] = "deadlock-stack-" .. result[1]
+                        table.insert(tempResults, result)
+                    else
+                        log("Error in createStackedOre() for " .. result[1] .. " with [1]")
+                    end
+                else
+                    log("Something went wrong during the replacing of minable.results")
+                    break -- probably not necessary?
+                end
+            end
+            ore.minable.results = tempResults
+        else
+            log("Not results mined by this ore are items, as such can not be stacked")
+            return nil
+        end
     elseif ore.minable.result then
         if createStackedVersion(ore.minable.result) then
             local stacked_ore = data.raw["item"]["deadlock-stack-" .. ore.minable.result]
@@ -190,8 +199,11 @@ for _, resource in pairs(data.raw["resource"]) do
         if has_value(resource_category_whitelist, resource.category) or resource.category == nil then
             -- Support for Pressurized fluids
             -- check if nil because in that case at the end of the data stage the value would be set to the default, which is "basic-solid"
-            table.insert(resourceTable, createStackedOre(resource.name))
-            log("Sucessfully created the ResourceEntity for the stacked ore version of " .. resource.name)
+            stacked_ore = createStackedOre(resource.name)
+            if stacked_ore then
+                table.insert(resourceTable, stacked_ore)
+                log("Sucessfully created the ResourceEntity for the stacked ore version of " .. resource.name)
+            end
         elseif mods["CompressedFluids"] and has_value(fluid_resource_category_whitelist, resource.category) then
             -- check if a high pressure version fluid exists that corresponds to the mining result of a resource
             if (resource.minable.result and (data.raw.fluid["high-pressure-" .. (resource.minable.result.name or resource.minable.result[1])]))
